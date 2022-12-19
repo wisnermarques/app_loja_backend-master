@@ -19,6 +19,13 @@ const Produto = connection.define("produtos", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  desconto: {
+    type: DataTypes.DECIMAL,
+    defaultValue: 0,
+  },
+  informacoes: {
+    type: DataTypes.TEXT,
+  },
 });
 
 Categoria.hasMany(Produto);

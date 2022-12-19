@@ -3,15 +3,18 @@ const Categoria = require("../models/Categoria");
 const Produto = require("../models/Produto");
 
 function save(req, res) {
-  const { produto, detalhes, preco, idCategoria, img } = req.body;
+  const { produto, detalhes, preco, idCategoria, img, desconto, informacoes } =
+    req.body;
 
-  if (produto != undefined && detalhes != undefined) {
+  if (produto != undefined && detalhes != undefined && preco != undefined) {
     Produto.create({
       produto,
       detalhes,
       preco,
       categoriaId: idCategoria,
       img,
+      desconto,
+      informacoes,
     })
       .then((produto) => res.status(201).json(produto))
       .catch((erro) => {
